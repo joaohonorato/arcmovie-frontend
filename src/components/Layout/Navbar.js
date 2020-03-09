@@ -4,8 +4,8 @@ import NavMenuLinks from "./NavMenuLinks";
 
 const Navbar = () => {
   return (
-    <nav class="nav-wrapper grey darken-3">
-      <div class="container">
+    <nav className="nav-wrapper grey darken-3">
+      <div className="container">
         <Link to="/" className="brand-logo">
           ArcMovie
         </Link>
