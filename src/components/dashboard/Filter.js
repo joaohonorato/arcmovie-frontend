@@ -1,25 +1,29 @@
 import React, { useState } from "react";
+import { searchMovie } from "../../store/actions/movieAction";
+import { useDispatch } from "react-redux";
 
 export default function SignIn() {
-  const [form, setForm] = useState({
-    search: ""
-  });
+  const [form, setForm] = useState("");
+
+  const dispatch = useDispatch();
+
   function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm(e.target.value);
   }
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
+    console.log(form);
+    dispatch(searchMovie(form));
+    setForm("");
   }
 
-  console.log(form);
   return (
     <div className="filter section container">
       <form className="white" onSubmit={handleSubmit}>
         <h5 className="grey-text text-darken-3">Upcoming movies</h5>
         <div className="input-field">
-          <label htmlFor="search">Find your movie by name</label>
-          <input type="text" id="search" name="search" onChange={handleChange} />
+          <label htmlFor="query">Find your movie by name</label>
+          <input type="text" id="query" name="query" onChange={handleChange} value={form} />
         </div>
         <div className="input-field">
           <button className="btn grey darken-2 z-depth-0">Search</button>

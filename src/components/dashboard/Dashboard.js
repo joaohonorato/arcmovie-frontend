@@ -4,14 +4,14 @@ import MovieList from "../movies/MovieList";
 import { useSelector } from "react-redux";
 
 export default function Dashboard() {
-  const movies2 = useSelector(state => state.movies.results);
+  const movies = useSelector(state => state.movies);
   return (
     <div className="dashboard container">
       <div className="row filters">
         <Filter />
       </div>
       <div className="row movies">
-        <MovieList movies={movies2} />
+        <MovieList movies={movies} />
       </div>
     </div>
   );

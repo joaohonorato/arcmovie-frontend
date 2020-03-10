@@ -1,355 +1,406 @@
-const initState = {
-  results: [
-    {
-      popularity: 343.278,
-      vote_count: 765,
-      video: false,
-      poster_path: "/Kt9iFdTu5TbAm7tNfc876mrWU.jpg",
-      id: 454626,
-      adult: false,
-      backdrop_path: "/qonBhlm0UjuKX2sH7e73pnG0454.jpg",
-      original_language: "en",
-      original_title: "Sonic the Hedgehog",
-      genre_ids: [28, 35, 878, 10751],
-      title: "Sonic: O Filme",
-      vote_average: 7.2,
-      overview:
-        "Sonic, o ouriço azul mais famoso do mundo, se junta com os seus amigos para derrotar o terrível Doutor Eggman, um cientista louco que planeja dominar o mundo, e o Doutor Robotnik, responsável por aprisionar animais inocentes em robôs.",
-      release_date: "2020-02-12"
-    },
-    {
-      popularity: 142.089,
-      id: 570670,
-      video: false,
-      vote_count: 313,
-      vote_average: 7.2,
-      title: "O Homem Invisível",
-      release_date: "2020-02-26",
-      original_language: "en",
-      original_title: "The Invisible Man",
-      genre_ids: [53, 878, 27],
-      backdrop_path: "/uZMZyvarQuXLRqf3xdpdMqzdtjb.jpg",
-      adult: false,
-      overview:
-        "Refilmagem do clássico de 1933. Na trama, um cientista brilhante descobre como se tornar invisível. Mas sua invenção acaba custando sua sanidade.",
-      poster_path: "/2VNPPiycsbnbAP9shfECCrI6pSb.jpg"
-    },
-    {
-      popularity: 103.912,
-      vote_count: 114,
-      video: false,
-      poster_path: "/yw7yXwpdSXJB6GWC19zryMxa1US.jpg",
-      id: 508439,
-      adult: false,
-      backdrop_path: "/bcT8CaBIj086WVD7K529h78eujb.jpg",
-      original_language: "en",
-      original_title: "Onward",
-      genre_ids: [12, 16, 35, 14, 10751],
-      title: "Dois Irmãos - Uma Jornada Fantástica",
-      vote_average: 8.1,
-      overview:
-        "Em um local onde as coisas fantásticas parecem ficar cada vez mais distantes de tudo, dois irmãos elfos adolescentes embarcam em uma extraordinária jornada para tentar redescobrir a magia do mundo ao seu redor.",
-      release_date: "2020-02-29"
-    },
-    {
-      popularity: 104.829,
-      vote_count: 56,
-      video: false,
-      poster_path: "/1khQF2WnURHo8MeD8Uup9ihroFG.jpg",
-      id: 338762,
-      adult: false,
-      backdrop_path: "/ocUrMYbdjknu2TwzMHKT9PBBQRw.jpg",
-      original_language: "en",
-      original_title: "Bloodshot",
-      genre_ids: [28, 18, 14, 878],
-      title: "Bloodshot",
-      vote_average: 5.9,
-      overview:
-        "Bloodshot é um ex-soldado com poderes especiais, o de regeneração e a capacidade de se metamorfosear. Essas capacidades foram desenvolvidas por ele após injetarem nanites em seu sangue. Após apagarem sua memória várias vezes, ele finalmente descobre quem é e parte em um busca de vingança daqueles que usaram ele como experiência científica.",
-      release_date: "2020-02-20"
-    },
-    {
-      popularity: 90.574,
-      id: 458897,
-      video: false,
-      vote_count: 612,
-      vote_average: 6.4,
-      title: "As Panteras",
-      release_date: "2019-11-14",
-      original_language: "en",
-      original_title: "Charlie's Angels",
-      genre_ids: [28, 12, 35],
-      backdrop_path: "/a0xTB1vBxMGt6LGG4N7k1wO9lfL.jpg",
-      adult: false,
-      overview:
-        "Elizabeth Banks dirige a nova geração de Panteras – Kristen Stewart, Naomi Scott e Ella Balinska – a serviço do misterioso Charles Townsend. As Panteras sempre proveram segurança e suas habilidades de investigação para clientes particulares, e agora a agência Townsend tem atuação internacional: as mais espertas, destemidas e altamente treinadas agentes em todo o globo formam múltiplos times de Panteras guiados por múltiplos Bosleys e estão prontas para atuar nos trabalhos mais difíceis ao redor do mundo. Quando um jovem engenheiro de sistemas soa o alarme a respeito de uma perigosa tecnologia; as Panteras são chamadas à ação, e colocam suas vidas em risco para nos proteger a todos.",
-      poster_path: "/9jdMSIPbwK0wgjuOQz0AvkYQ4M3.jpg"
-    },
-    {
-      popularity: 80.375,
-      id: 331482,
-      video: false,
-      vote_count: 1294,
-      vote_average: 8,
-      title: "Adoráveis Mulheres",
-      release_date: "2019-12-25",
-      original_language: "en",
-      original_title: "Little Women",
-      genre_ids: [18, 10749],
-      backdrop_path: "/3uTxPIdVEXxHpsHOHdJC24QebBV.jpg",
-      adult: false,
-      overview:
-        "As irmãs Jo (Saoirse Ronan), Beth (Eliza Scanlen), Meg (Emma Watson) e Amy (Florence Pugh) amadurecem na virada da adolescência para a vida adulta enquanto os Estados Unidos atravessam a Guerra Civil. Com personalidades completamente diferentes, elas enfrentam os desafios de crescer unidas pelo amor que nutrem umas pelas outras.",
-      poster_path: "/aDmuBImEP5blvrfzPBmIJwYZpoS.jpg"
-    },
-    {
-      popularity: 84.849,
-      id: 292011,
-      video: false,
-      vote_count: 431,
-      vote_average: 7.5,
-      title: "O Caso de Richard Jewell",
-      release_date: "2019-12-13",
-      original_language: "en",
-      original_title: "Richard Jewell",
-      genre_ids: [18],
-      backdrop_path: "/zAfG4ZmpNfKSyr8MVn1CHjgYYXx.jpg",
-      adult: false,
-      overview:
-        "A história real de Richard Jewell (Paul Walter Hauser), segurança que se tornou um dos principais suspeitos de bombardear as Olimpíadas de Atlanta, no ano de 1996. Na realidade, ele foi o responsável por ajudar inocentes a fugirem do local e avisar da existência de um dos explosivos.",
-      poster_path: "/koGknmSPrlDxzb5hvqn7CT5Uqt.jpg"
-    },
-    {
-      popularity: 81.895,
-      id: 502425,
-      video: false,
-      vote_count: 5,
-      vote_average: 7.1,
-      title: "Fuga de Pretória",
-      release_date: "2020-03-06",
-      original_language: "en",
-      original_title: "Escape from Pretoria",
-      genre_ids: [53],
-      backdrop_path: "/kolkVKNZSjhZGHwcrFU36Watpke.jpg",
-      adult: false,
-      overview: "",
-      poster_path: "/sI4StUppzQHzSU9QPiRUxOvQRvp.jpg"
-    },
-    {
-      popularity: 66.013,
-      vote_count: 490,
-      video: false,
-      poster_path: "/o7lNsNjem7iLqMjvIgqGyU6HY1A.jpg",
-      id: 525661,
-      adult: false,
-      backdrop_path: "/ghQrKrcEpAlkzBuNoOCSxHQXWqw.jpg",
-      original_language: "en",
-      original_title: "Bombshell",
-      genre_ids: [18],
-      title: "O Escândalo",
-      vote_average: 6.8,
-      overview:
-        "Um gigante do telejornalismo e antigo CEO da Fox News, Roger Ailes (John Lithgow) tem seu poder questionado e sua carreira derrubada quando um grupo de mulheres o acusam de assédio sexual no ambiente de trabalho.",
-      release_date: "2019-12-13"
-    },
-    {
-      popularity: 55.219,
-      vote_count: 62,
-      video: false,
-      poster_path: "/apviFSH4W9UPMM4thOv8pYEX0nQ.jpg",
-      id: 457335,
-      adult: false,
-      backdrop_path: "/gL7TV2g9y9p3v7occ5bLrJ2p1qs.jpg",
-      original_language: "en",
-      original_title: "Guns Akimbo",
-      genre_ids: [28, 35],
-      title: "Guns Akimbo",
-      vote_average: 6.4,
-      overview:
-        "A vida de um homem vira de cabeça para baixo quando ele se envolve com um movimento de rede social obscuro que força estranhos a lutar até a morte enquanto o mundo inteiro assiste a transmissão.",
-      release_date: "2020-02-27"
-    },
-    {
-      popularity: 52.496,
-      vote_count: 616,
-      video: false,
-      poster_path: "/eiMUDeDBH4s1dbtbcnmasAtgssZ.jpg",
-      id: 448119,
-      adult: false,
-      backdrop_path: "/lG802rseTZcN9mtLsQPVfApEVzM.jpg",
-      original_language: "en",
-      original_title: "Dolittle",
-      genre_ids: [12, 35, 14, 10751],
-      title: "Dolittle",
-      vote_average: 6.5,
-      overview:
-        "O Dr. Dolittle vive com uma variedade de animais exóticos e conversa com eles diariamente. Quando a jovem rainha Victoria fica doente, o excêntrico médico e seus amigos peludos embarcam em uma aventura épica em uma ilha mítica para encontrar a cura.",
-      release_date: "2020-01-01"
-    },
-    {
-      popularity: 40.68,
-      vote_count: 235,
-      video: false,
-      poster_path: "/6g7Up2zqbAwPDU4vvzVk7ry9DJt.jpg",
-      id: 552178,
-      adult: false,
-      backdrop_path: "/4ZSlTfkHtgTTupCaLbseXQQzZha.jpg",
-      original_language: "en",
-      original_title: "Dark Waters",
-      genre_ids: [18, 53],
-      title: "O Preço da Verdade",
-      vote_average: 7.4,
-      overview:
-        "Um advogado arrisca sua carreira e família para descobrir um sombrio segredo escondido por uma das maiores empresas do mundo e levar justiça a uma comunidade perigosamente exposta por décadas a produtos químicos mortais.",
-      release_date: "2019-11-22"
-    },
-    {
-      popularity: 52.561,
-      vote_count: 34,
-      video: false,
-      poster_path: "/2soGLyvHL70prNTAaxBLakG54sy.jpg",
-      id: 556678,
-      adult: false,
-      backdrop_path: "/l111ATIHwHQPL9dHKV5Lix85Azq.jpg",
-      original_language: "en",
-      original_title: "Emma.",
-      genre_ids: [35, 18],
-      title: "Emma",
-      vote_average: 7.3,
-      overview:
-        "A famosa comédia de Jane Austen sobre encontrar o seu igual e ganhar o seu final feliz, é reimaginada nesta deliciosa nova adaptação cinematográfica da EMMA. Bonita, inteligente e rica, Emma Woodhouse é uma abelha rainha inquieta, sem rivais em sua pequena cidade sonolenta. Nesta sátira cintilante da classe social e com a dor de crescer, Emma deve se aventurar por partidas equivocadas e erros românticos para encontrar o amor que sempre existiu.",
-      release_date: "2020-02-13"
-    },
-    {
-      popularity: 53.787,
-      vote_count: 1,
-      video: false,
-      poster_path: "/zw7MDRD7aek526rKLM04hAROGKy.jpg",
-      id: 571265,
-      adult: false,
-      backdrop_path: "/ApywEWLRVaHUY5QX5tUhErBD5m3.jpg",
-      original_language: "ja",
-      original_title: "デジモンアドベンチャー LAST EVOLUTION 絆",
-      genre_ids: [28, 12, 16, 53],
-      title: "デジモンアドベンチャー LAST EVOLUTION 絆",
-      vote_average: 10,
-      overview: "",
-      release_date: "2020-02-21"
-    },
-    {
-      popularity: 35.925,
-      vote_count: 363,
-      video: false,
-      poster_path: "/5M9tA2TY0nZnrDlWNVCfaFOip6g.jpg",
-      id: 531428,
-      adult: false,
-      backdrop_path: "/joXf2ToDZjVMBxWrzijQ3V9cC8p.jpg",
-      original_language: "fr",
-      original_title: "Portrait de la jeune fille en feu",
-      genre_ids: [18, 10749],
-      title: "Retrato de uma Jovem em Chamas",
-      vote_average: 8.3,
-      overview:
-        "França, 1760. Marianne é contratada para pintar o retrato de casamento de Héloïse, uma jovem mulher que acabou de deixar o convento. Por ela ser uma noiva relutante, Marianne chega sob o disfarce de companhia, observando Héloïse de dia e a pintando secretamente à noite. Conforme as duas mulheres se aproximam, a intimidade e a atração crescem, enquanto compartilham os primeiros e últimos momentos de liberdade de Héloïse, antes do casamento iminente. O retrato de Héloïse logo se torna um ato colaborativo e o testamento do amor delas.",
-      release_date: "2019-06-17"
-    },
-    {
-      popularity: 29.99,
-      vote_count: 93,
-      video: false,
-      poster_path: "/1HhZkIuwwtv62pXb4S7TqElLZFG.jpg",
-      id: 403300,
-      adult: false,
-      backdrop_path: "/7OcLrFT8VkrMTUUwLQISJOwzz0n.jpg",
-      original_language: "en",
-      original_title: "A Hidden Life",
-      genre_ids: [18, 36, 10752],
-      title: "Uma Vida Oculta",
-      vote_average: 7.2,
-      overview:
-        "Franz Jägerstätter (August Diehl) é um fazendeiro austríaco que se torna herói em circunstâncias um tanto quanto inusitadas. Quando ele é convocado a lutar junto ao exército alemão durante a Segunda Guerra Mundial, ele se recusa e acaba, com apenas 36 anos de idade, condenado à pena de morte por traição à pátria.",
-      release_date: "2019-12-11"
-    },
-    {
-      popularity: 22.68,
-      vote_count: 1,
-      video: false,
-      poster_path: "/2K8Lbz0Rtl7HjbojQlrEGg6Fy4y.jpg",
-      id: 627725,
-      adult: false,
-      backdrop_path: "/jqz8FwISQfyum47PUqgPTGtmiMk.jpg",
-      original_language: "en",
-      original_title: "The Banker",
-      genre_ids: [18],
-      title: "The Banker",
-      vote_average: 9,
-      overview:
-        "Texas, década de 1950. Joe Morris e Bernard Garrett são dois empresários afro-americanos que resolvem contratar Matt Steiner, um homem branco da classe trabalhadora, para se passar por chefe deles. Assim, eles conseguem contornar as limitações raciais da época e se tornar dois dos proprietários de imóveis mais ricos e bem-sucedidos do país.",
-      release_date: "2020-03-06"
-    },
-    {
-      popularity: 20.245,
-      vote_count: 3,
-      video: false,
-      poster_path: "/gKwXP1VvKNxrc1400yksKA4D9Qc.jpg",
-      id: 617784,
-      adult: false,
-      backdrop_path: "/pPtBB9fD70Ta44pSQXGvZ6Kwc0p.jpg",
-      original_language: "en",
-      original_title: "Military Wives",
-      genre_ids: [18],
-      title: "Military Wives",
-      vote_average: 9,
-      overview: "",
-      release_date: "2020-03-06"
-    },
-    {
-      popularity: 27.736,
-      vote_count: 39,
-      video: false,
-      poster_path: "/JrhJL4Jgl6yvEtKmh9maSxkijy.jpg",
-      id: 555974,
-      adult: false,
-      backdrop_path: "/rpGYHowXtjw37UxdwO1ZcK5E8IN.jpg",
-      original_language: "en",
-      original_title: "Brahms: The Boy II",
-      genre_ids: [27, 9648, 53],
-      title: "Brahms: Boneco do Mal II",
-      vote_average: 5.4,
-      overview:
-        "Liza e sua jovem família se mudam para a Mansão Heelshire, em uma pequena vila na Inglaterra. Quando seu filho encontra um amigo no realista boneco Brahms, estranhos acontecimentos passam a cercar suas vidas de terror.",
-      release_date: "2020-02-20"
-    },
-    {
-      popularity: 29.326,
-      vote_count: 0,
-      video: false,
-      poster_path: "/1anL0nnLj0SbWsaK9OfvLxdoG6o.jpg",
-      id: 520763,
-      adult: false,
-      backdrop_path: "/z2UtGA1WggESspi6KOXeo66lvLx.jpg",
-      original_language: "en",
-      original_title: "A Quiet Place Part II",
-      genre_ids: [18, 878, 53],
-      title: "Um Lugar Silencioso - Parte II",
-      vote_average: 0,
-      overview:
-        "Logo após os acontecimentos mortais, até mesmo dentro de casa, a família Abbott precisa agora encarar o terror mundo afora, continuando a lutar para sobreviver em silêncio. Obrigados a se aventurar pelo desconhecido, eles rapidamente percebem que as criaturas que caçam pelo som não são as únicas ameaças que os observam pelo caminho de areia.",
-      release_date: "2020-03-18"
-    }
-  ],
-  page: 1,
-  total_results: 409,
-  dates: {
-    maximum: "2020-04-04",
-    minimum: "2020-03-08"
+const initState = [
+  {
+    id: 454626,
+    name: "Sonic the Hedgehog",
+    image: "/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg",
+    genre: [
+      {
+        id: 28,
+        name: "Action"
+      },
+      {
+        id: 35,
+        name: "Comedy"
+      },
+      {
+        id: 878,
+        name: "Science Fiction"
+      },
+      {
+        id: 10751,
+        name: "Family"
+      }
+    ],
+    overview:
+      "Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this live-action adventure comedy, Sonic and his new best friend team up to defend the planet from the evil genius Dr. Robotnik and his plans for world domination.",
+    releaseDate: "2020-02-12"
   },
-  total_pages: 21
-};
+  {
+    id: 570670,
+    name: "The Invisible Man",
+    image: "/4U7hpTK0XTQBKT5X60bKmJd05ha.jpg",
+    genre: [
+      {
+        id: 27,
+        name: "Horror"
+      },
+      {
+        id: 878,
+        name: "Science Fiction"
+      },
+      {
+        id: 53,
+        name: "Thriller"
+      }
+    ],
+    overview:
+      "When Cecilia's abusive ex takes his own life and leaves her his fortune, she suspects his death was a hoax. As a series of coincidences turn lethal, Cecilia works to prove that she is being hunted by someone nobody can see.",
+    releaseDate: "2020-02-26"
+  },
+  {
+    id: 338762,
+    name: "Bloodshot",
+    image: "/1kE2xBJlX49iEsCfMYKcQd7tHpn.jpg",
+    genre: [
+      {
+        id: 28,
+        name: "Action"
+      },
+      {
+        id: 18,
+        name: "Drama"
+      },
+      {
+        id: 14,
+        name: "Fantasy"
+      },
+      {
+        id: 878,
+        name: "Science Fiction"
+      }
+    ],
+    overview:
+      "After he and his wife are murdered, marine Ray Garrison is resurrected by a team of scientists. Enhanced with nanotechnology, he becomes a superhuman, biotech killing machine - Bloodshot. As Ray first trains with fellow super-soldiers, he cannot recall anything from his former life. But when his memories flood back and he remembers the man that killed both him and his wife, he breaks out of the facility to get revenge, only to discover that there's more to the conspiracy than he thought.",
+    releaseDate: "2020-02-20"
+  },
+  {
+    id: 508439,
+    name: "Onward",
+    image: "/3VqDLgKLfNYSQYEGC5sjGhcPhn7.jpg",
+    genre: [
+      {
+        id: 12,
+        name: "Adventure"
+      },
+      {
+        id: 16,
+        name: "Animation"
+      },
+      {
+        id: 35,
+        name: "Comedy"
+      },
+      {
+        id: 14,
+        name: "Fantasy"
+      },
+      {
+        id: 10751,
+        name: "Family"
+      }
+    ],
+    overview:
+      "In a suburban fantasy world, two teenage elf brothers embark on an extraordinary quest to discover if there is still a little magic left out there.",
+    releaseDate: "2020-02-29"
+  },
+  {
+    id: 331482,
+    name: "Little Women",
+    image: "/mSmiB8XjUnR1GSIljuCPGsk0cwX.jpg",
+    genre: [
+      {
+        id: 18,
+        name: "Drama"
+      },
+      {
+        id: 10749,
+        name: "Romance"
+      }
+    ],
+    overview: "Four sisters come of age in America in the aftermath of the Civil War.",
+    releaseDate: "2019-12-25"
+  },
+  {
+    id: 292011,
+    name: "Richard Jewell",
+    image: "/5Lgkm8jt4roAFPZQ52fKMhVmDaZ.jpg",
+    genre: [
+      {
+        id: 18,
+        name: "Drama"
+      }
+    ],
+    overview:
+      'Directed by Clint Eastwood and based on true events, "Richard Jewell" is a story of what happens when what is reported as fact obscures the truth. "There is a bomb in Centennial Park. You have thirty minutes." The world is first introduced to Richard Jewell as the security guard who reports finding the device at the 1996 Atlanta bombing-his report making him a hero whose swift actions save countless lives. But within days, the law enforcement wannabe becomes the FBI\'s number one suspect, vilified by press and public alike, his life ripped apart.  Richard Jewell thinks quick, works fast, and saves hundreds, perhaps thousands, of lives after a domestic terrorist plants several pipe bombs and they explode during a concert, only to be falsely suspected of the crime by sloppy FBI work and sensational media coverage.',
+    releaseDate: "2019-12-13"
+  },
+  {
+    id: 458897,
+    name: "Charlie's Angels",
+    image: "/1DPUFG6QnGqzpvEaDEv7TaepycM.jpg",
+    genre: [
+      {
+        id: 28,
+        name: "Action"
+      },
+      {
+        id: 12,
+        name: "Adventure"
+      },
+      {
+        id: 35,
+        name: "Comedy"
+      }
+    ],
+    overview:
+      "When a systems engineer blows the whistle on a dangerous technology, Charlie's Angels from across the globe are called into action, putting their lives on the line to protect society.",
+    releaseDate: "2019-11-14"
+  },
+  {
+    id: 502425,
+    name: "Escape from Pretoria",
+    image: "/sI4StUppzQHzSU9QPiRUxOvQRvp.jpg",
+    genre: [
+      {
+        id: 53,
+        name: "Thriller"
+      }
+    ],
+    overview:
+      "Based on the real-life prison break of two political captives, Escape From Pretoria is a race-against-time thriller set in the tumultuous apartheid days of South Africa. Two white South Africans, imprisoned for working on behalf of the ANC, are determined to escape from the notorious white man's 'Robben Island', Pretoria Prison.",
+    releaseDate: "2020-03-06"
+  },
+  {
+    id: 457335,
+    name: "Guns Akimbo",
+    image: "/2kNnf7BwRCEm4bcFkdiE0T4U25s.jpg",
+    genre: [
+      {
+        id: 28,
+        name: "Action"
+      },
+      {
+        id: 35,
+        name: "Comedy"
+      }
+    ],
+    overview:
+      "An ordinary guy suddenly finds himself forced to fight a gladiator-like battle for a dark website that streams the violence for viewers. Miles must fight heavily armed Nix and also save his kidnapped ex-girlfriend.",
+    releaseDate: "2020-02-27"
+  },
+  {
+    id: 525661,
+    name: "Bombshell",
+    image: "/gbPfvwBqbiHpQkYZQvVwB6MVauV.jpg",
+    genre: [
+      {
+        id: 18,
+        name: "Drama"
+      }
+    ],
+    overview:
+      "Bombshell is a revealing look inside the most powerful and controversial media empire of all time; and the explosive story of the women who brought down the infamous man who created it.",
+    releaseDate: "2019-12-13"
+  },
+  {
+    id: 571265,
+    name: "Digimon Adventure: Last Evolution Kizuna",
+    image: "/7bjTzPQUV2KVI0HdUjf1l8lUoLF.jpg",
+    genre: [
+      {
+        id: 28,
+        name: "Action"
+      },
+      {
+        id: 12,
+        name: "Adventure"
+      },
+      {
+        id: 16,
+        name: "Animation"
+      },
+      {
+        id: 53,
+        name: "Thriller"
+      }
+    ],
+    overview:
+      "Tai is now a university student, living alone, working hard at school, and working every day, but with his future still undecided. Meanwhile, Matt and others continue to work on Digimon incidents and activities that help people with their partner Digimon. When an unprecedented phenomenon occurs, the DigiDestined discover that when they grow up, their relationship with their partner Digimon will come closer to an end.  As a countdown timer activates on the Digivice, they realize that the more they fight with their partner Digimon, the faster their bond breaks. Will they fight for others and lose their partner? The time to choose and decide is approaching fast. There is a short time before “chosen children” will become adults. This is the last adventure of Tai and Agumon.",
+    releaseDate: "2020-02-21"
+  },
+  {
+    id: 556678,
+    name: "Emma.",
+    image: "/sm8iVzA7kRp0d4BSIsgXjsSBMKV.jpg",
+    genre: [
+      {
+        id: 35,
+        name: "Comedy"
+      },
+      {
+        id: 18,
+        name: "Drama"
+      }
+    ],
+    overview: "In 1800s England, a well-meaning but selfish young woman meddles in the love lives of her friends.",
+    releaseDate: "2020-02-13"
+  },
+  {
+    id: 448119,
+    name: "Dolittle",
+    image: "/5eNiYMu2GXCtNlDwMcJqKGVwyoX.jpg",
+    genre: [
+      {
+        id: 12,
+        name: "Adventure"
+      },
+      {
+        id: 35,
+        name: "Comedy"
+      },
+      {
+        id: 14,
+        name: "Fantasy"
+      },
+      {
+        id: 10751,
+        name: "Family"
+      }
+    ],
+    overview:
+      "After losing his wife seven years earlier, the eccentric Dr. John Dolittle, famed doctor and veterinarian of Queen Victoria’s England, hermits himself away behind the high walls of Dolittle Manor with only his menagerie of exotic animals for company. But when the young queen falls gravely ill, a reluctant Dolittle is forced to set sail on an epic adventure to a mythical island in search of a cure, regaining his wit and courage as he crosses old adversaries and discovers wondrous creatures.",
+    releaseDate: "2020-01-01"
+  },
+  {
+    id: 552178,
+    name: "Dark Waters",
+    image: "/67AVxH8SM5gDUoPFCGfeUg1TuEs.jpg",
+    genre: [
+      {
+        id: 18,
+        name: "Drama"
+      },
+      {
+        id: 53,
+        name: "Thriller"
+      }
+    ],
+    overview:
+      "A tenacious attorney uncovers a dark secret that connects a growing number of unexplained deaths due to one of the world's largest corporations. In the process, he risks everything — his future, his family, and his own life — to expose the truth.",
+    releaseDate: "2019-11-22"
+  },
+  {
+    id: 585244,
+    name: "I Still Believe",
+    image: "/dWkt2dC0tYm2ZhxuEotXQaNeH7X.jpg",
+    genre: [
+      {
+        id: 18,
+        name: "Drama"
+      },
+      {
+        id: 10402,
+        name: "Music"
+      }
+    ],
+    overview:
+      "The true-life story of Christian music star Jeremy Camp and his journey of love and loss that looks to prove there is always hope.",
+    releaseDate: "2020-03-12"
+  },
+  {
+    id: 575452,
+    name: "The Traitor",
+    image: "/bjb1zKlyw85hYwDXzz2UM6XqjUU.jpg",
+    genre: [
+      {
+        id: 80,
+        name: "Crime"
+      },
+      {
+        id: 18,
+        name: "Drama"
+      }
+    ],
+    overview:
+      "Palermo, Sicily, 1980. Mafia member Tommaso Buscetta decides to move to Brazil with his family fleeing the constant war between the different clans of the criminal organization. But when, after living several misfortunes, he is forced to return to Italy, he makes a bold decision that will change his life and the destiny of Cosa Nostra forever.",
+    releaseDate: "2019-05-23"
+  },
+  {
+    id: 520763,
+    name: "A Quiet Place Part II",
+    image: "/4q2hz2m8hubgvijz8Ez0T2Os2Yv.jpg",
+    genre: [
+      {
+        id: 18,
+        name: "Drama"
+      },
+      {
+        id: 878,
+        name: "Science Fiction"
+      },
+      {
+        id: 53,
+        name: "Thriller"
+      }
+    ],
+    overview:
+      "Following the events at home, the Abbott family now face the terrors of the outside world. Forced to venture into the unknown, they realize that the creatures that hunt by sound are not the only threats that lurk beyond the sand path.",
+    releaseDate: "2020-03-18"
+  },
+  {
+    id: 595975,
+    name: "La Belle Époque",
+    image: "/mJJD5m0uHKqcWctQRcPoOuHvG6E.jpg",
+    genre: [
+      {
+        id: 35,
+        name: "Comedy"
+      },
+      {
+        id: 18,
+        name: "Drama"
+      }
+    ],
+    overview:
+      "Victor, a disillusioned sexagenarian, sees his life turned upside down on the day when Antoine, a brilliant entrepreneur, offers him a new kind of attraction: mixing theatrical artifices and historical reconstruction, this company offers his clients a chance to dive back into the era of their choice. Victor then chose to relive the most memorable week of his life: the one where, 40 years earlier, he met the great love.",
+    releaseDate: "2019-11-06"
+  },
+  {
+    id: 531428,
+    name: "Portrait of a Lady on Fire",
+    image: "/3NTEMlG5mQdIAlKDl3AJG0rX29Z.jpg",
+    genre: [
+      {
+        id: 18,
+        name: "Drama"
+      },
+      {
+        id: 10749,
+        name: "Romance"
+      }
+    ],
+    overview:
+      "On an isolated island in Brittany at the end of the eighteenth century, a female painter is obliged to paint a wedding portrait of a young woman.",
+    releaseDate: "2019-06-17"
+  },
+  {
+    id: 673168,
+    name: "Don’t Speak",
+    image: "/wnUOcrX6AENcpydRc9OItLxF889.jpg",
+    genre: [],
+    overview:
+      "Upon arriving at their grandparents farm, a family soon realise the entire town has been taken out by an unknown monster. And soon, they become its prey.",
+    releaseDate: "2020-03-10"
+  }
+];
 
 const movieReducer = (state = initState, action) => {
-  if (action.type == "ADD_MOVIE_LIST") {
-    return [...state, ...action.movies];
+  if (action.type == "SEARCH_MOVIE") {
+    // let a = state.results.filter(movie =>
+    //   movie.original_title.toLowerCase().includes(action.search.query.toLowerCase())
+    // );
+    console.log(state);
+    return [...state];
   }
   return state;
 };

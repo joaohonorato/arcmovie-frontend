@@ -1,6 +1,7 @@
-export const addMoviePage = (movies) = {
-    return {
-        type: 'ADD_MOVIE_PAGE',
-        movies
-    }
-}
+export const searchMovie = search => {
+  return {
+    type: "SEARCH_MOVIE",
+    search
+  };
+};
+
