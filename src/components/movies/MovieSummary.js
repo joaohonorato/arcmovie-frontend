@@ -1,9 +1,8 @@
 import React from "react";
 
 export default function MovieSummary({ movie }) {
-  console.log(movie);
   const { name, genre, releaseDate, image } = movie;
-  const genreList = genre.map(g => <li>{g.name}</li>);
+  const genreList = genre.map(g => <li key={g.id}>{g.name}</li>);
   return (
     <div className="col s12 m6 movie-summary">
       <div className="card  z-depth-2">

@@ -399,8 +399,13 @@ const movieReducer = (state = initState, action) => {
     // let a = state.results.filter(movie =>
     //   movie.original_title.toLowerCase().includes(action.search.query.toLowerCase())
     // );
-    console.log(state);
-    return [...state];
+    const selectedMovies = state;
+    console.log(action);
+    if (action.search !== "") {
+      return [...state.filter(movie => movie.name.toLowerCase().includes(action.search.toLowerCase()))];
+    }
+
+    return [...initState];
   }
   return state;
 };
