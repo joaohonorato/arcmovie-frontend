@@ -1,23 +1,44 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 export default function MovieDetails(props) {
+  const movies = useSelector(state => state.movies);
   const id = props.match.params.id;
-  return (
-    <div className="movie-detail container section">
-      <div className="card z-depth-0">
-        <div class="card-image waves-effect waves-block waves-light">Movie Poster or Backdrop Image</div>
-        <div className="card-content">
-          <span className="card-title">Movie title {id} </span>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et labore quaerat quibusdam vel saepe, ab voluptate
-            accusantium culpa nemo fuga earum? Soluta amet nobis officia sed neque fuga aperiam quia?
-          </p>
-        </div>
-        <div className="card-action grey lighten-4 grey-text">
-          <div>Release date</div>
-          <div>2nd September, 2am</div>
+  const movie = movies.filter(m => m.id == id)[0];
+  const { name, genre, releaseDate, image, overview } = movie;
+  const genreList = genre == [] ? [] : genre.map(g => <li key={g.id}>{g.name}</li>);
+
+  console.log(genreList);
+  if (movie) {
+    return (
+      <div className="row">
+        <div className="movie-detail container section">
+          <div className="card z-depth-0">
+            <div className="col m6 s12">
+              <img src={"https://image.tmdb.org/t/p/original" + image} height="80%" width="80%" />
+            </div>
+            <div className="col m6 s12">
+              <div className="card-content">
+                <h1 className="card-title">{name} </h1>
+                <ul>{genreList}</ul>
+                <p>{overview}</p>
+              </div>
+              <div className="card-action grey lighten-4 grey-text">
+                <p>
+                  <strong>Release date: </strong>
+                  {releaseDate}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="container center">
+        <p>Loading project...</p>
+      </div>
+    );
+  }
 }

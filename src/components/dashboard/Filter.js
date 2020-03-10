@@ -12,7 +12,6 @@ export default function SignIn() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(form);
     dispatch(searchMovie(form));
   }
 
