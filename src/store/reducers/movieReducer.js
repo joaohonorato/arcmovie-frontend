@@ -3,7 +3,7 @@ const initState = {
     {
       popularity: 343.278,
       vote_count: 765,
-      video: false, 
+      video: false,
       poster_path: "/Kt9iFdTu5TbAm7tNfc876mrWU.jpg",
       id: 454626,
       adult: false,
@@ -348,6 +348,9 @@ const initState = {
 };
 
 const movieReducer = (state = initState, action) => {
+  if (action.type == "ADD_MOVIE_LIST") {
+    return [...state, ...action.movies];
+  }
   return state;
 };
 

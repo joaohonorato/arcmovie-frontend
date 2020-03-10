@@ -1,7 +1,7 @@
 import React from "react";
 import MovieSummary from "./MovieSummary";
 
-const MovieList = ({ movies }) => {
+export default function MovieList({ movies }) {
   return (
     <div className="movie-list section">
       {movies &&
@@ -10,6 +10,4 @@ const MovieList = ({ movies }) => {
         })}
     </div>
   );
-};
-
-export default MovieList;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 
-const MovieDetails = props => {
+export default function MovieDetails(props) {
   const id = props.match.params.id;
   return (
     <div className="movie-detail container section">
@@ -20,6 +20,4 @@ const MovieDetails = props => {
       </div>
     </div>
   );
-};
-
-export default MovieDetails;
+}

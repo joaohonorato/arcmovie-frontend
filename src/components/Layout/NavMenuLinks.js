@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const NavMenuLinks = () => {
+export default function NavMenuLinks() {
   return (
     <ul className="right">
       <li>
@@ -12,6 +12,4 @@ const NavMenuLinks = () => {
       </li>
     </ul>
   );
-};
-
-export default NavMenuLinks;
+}

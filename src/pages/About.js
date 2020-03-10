@@ -1,6 +1,6 @@
 import React from "react";
 
-const About = () => {
+export default function About() {
   return (
     <div className="movie-detail container section">
       <div className="card z-depth-0">
@@ -14,6 +14,4 @@ const About = () => {
       </div>
     </div>
   );
-};
-
-export default About;
+}
