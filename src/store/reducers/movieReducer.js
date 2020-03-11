@@ -8,7 +8,6 @@ const initState = {
 
 export default createReducer(initState, {
   [searchMovie.type]: (state, action) => {
-    console.log(action);
     if (action.payload !== "") {
       return {
         ...state,

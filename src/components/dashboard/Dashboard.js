@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 export default function Dashboard() {
   const movies = useSelector(state => {
-    console.log(state);
     return state.movies;
   });
   return (
