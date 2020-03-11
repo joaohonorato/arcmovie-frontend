@@ -31,7 +31,7 @@ staging:
   script:
     - dpl --provider=heroku --app=arcmovie --api-key=$HEROKU_API_KEY
   only:
-    - master
+    - development
   before_script:
     - echo "deb http://toolbelt.heroku.com/ubuntu ./" > /etc/apt/sources.list.d/heroku.list
     - wget -O- https://toolbelt.heroku.com/apt/release.key | apt-key add -
