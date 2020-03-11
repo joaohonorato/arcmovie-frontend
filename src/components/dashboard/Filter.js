@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { getAllMovies } from "../../store/actions/movieFetchAction";
 
 export default function SignIn() {
   const [form, setForm] = useState("");
 
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    dispatch(getAllMovies());
+  }, [dispatch]);
+  
   function handleChange(e) {
     setForm(e.target.value);
   }

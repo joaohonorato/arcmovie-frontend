@@ -6,8 +6,7 @@ export const getAllMovies = () => {
     api
       .get("/v1/movies/")
       .then(res => {
-        console.log("API RESPONSE ", res);
-        dispatch(addMovies(res.data ));
+        dispatch(addMovies(res.data));
       })
       .catch(console.log);
   };

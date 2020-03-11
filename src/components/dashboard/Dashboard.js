@@ -1,15 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Filter from "./Filter";
 import MovieList from "../movies/MovieList";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllMovies } from "../../store/actions/movieFetchAction";
+import { useSelector } from "react-redux";
 
 export default function Dashboard() {
-  const movies = useSelector(state => state.movies);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllMovies());
-  }, [dispatch]);
+  const movies = useSelector(state => {
+    console.log(state);
+    return state.movies;
+  });
   return (
     <div className="dashboard container">
       <div className="row filters">

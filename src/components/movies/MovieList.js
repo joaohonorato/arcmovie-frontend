@@ -3,6 +3,11 @@ import MovieSummary from "./MovieSummary";
 import { Link } from "react-router-dom";
 
 export default function MovieList({ movies }) {
+  if (movies.filteredMovies.length === 0) {
+    movies = movies.all;
+  } else {
+    movies = movies.filteredMovies;
+  }
   return (
     <div className="movie-list section">
       {movies &&
