@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export default function MovieDetails(props) {
-  const movies = useSelector(state => state.movies);
+  const movies = useSelector(state => state.movies.all);
   const id = props.match.params.id;
   const movie = movies.filter(m => m.id === parseInt(id))[0];
   const { name, genre, releaseDate, image, overview } = movie;
