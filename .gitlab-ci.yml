@@ -27,7 +27,7 @@ react_build:
 staging:
   stage: deploy
   variables:
-    HEROKU_API_KEY: $HEROKU_STAGING_API_KEY
+    HEROKU_API_KEY: $HEROKU_API_KEY
   script:
     - dpl --provider=heroku --app=arcmovie --api-key=$HEROKU_API_KEY
   only:
