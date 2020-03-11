@@ -1,24 +1,31 @@
-ArcMovie Code Challange.
+# ArcMovie Code Challange.
 
 This is a simple front end that will query that from a api and present it in a table format that can be searched by movie name;
 
-
-## Available Scripts
+## Installation
 
 In the project directory, you can run:
 
- npm start - to start the application
- npm test - to run unit test
+To start the application:
 
-## Version 1
-- Movie List
-  Query all data and present it in a list. Link to detail in each movie
-- Search Movie
- Will just filter the list
--Movie Detail
-Will show details of movie
+```bash
+ npm start
+```
 
-## Version 2
-- Movie List
- Should query data as needed (lazy loading) with pagination
- 
+To test the application:
+
+```bash
+ npm test
+```
+
+## Available
+
+[arcmovie.herokuapp.com/](https://arcmovie.herokuapp.com/)
+
+## Contributing
+
+João Assis
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
