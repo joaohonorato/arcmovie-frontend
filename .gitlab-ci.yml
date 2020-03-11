@@ -4,7 +4,7 @@ stages:
   - deploy
 es-lint:
   image: node:alpine
-  stage: code_quality
+  stage: .pre
   before_script:
     - npm install -g eslint
     - npm install eslint-plugin-react@latest --save-dev
