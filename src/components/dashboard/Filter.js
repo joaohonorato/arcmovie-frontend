@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { searchMovie } from "../../store/actions/movieAction";
 import { useDispatch } from "react-redux";
 
 export default function SignIn() {
@@ -12,7 +11,7 @@ export default function SignIn() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(searchMovie(form));
+    dispatch({ type: "SEARCH_MOVIE", search: form });
   }
 
   return (
