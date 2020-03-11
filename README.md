@@ -18,6 +18,10 @@ To test the application:
  npm test
 ```
 
+## CI/CD
+
+Using gitlab CI/CD plataform with heroku
+
 ## Available
 
 [arcmovie.herokuapp.com/](https://arcmovie.herokuapp.com/)
