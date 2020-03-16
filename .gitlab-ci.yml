@@ -1,0 +1,40 @@
+stages:
+  - test
+  - build
+  - deploy
+es-lint:
+  image: node:alpine
+  stage: .pre
+  before_script:
+    - npm install -g eslint
+    - npm install eslint-plugin-react@latest --save-dev
+  script:
+    - eslint --ext .jsx,.js src/
+unit_test:
+  image: node:alpine
+  stage: test
+  before_script:
+    - npm install
+  script:
+    - npm test
+react_build:
+  image: node:alpine
+  stage: build
+  before_script:
+    - npm install
+  script:
+    - npm run-script build
+staging:
+  stage: deploy
+  variables:
+    HEROKU_API_KEY: $HEROKU_API_KEY
+  script:
+    - dpl --provider=heroku --app=arcmovie --api-key=$HEROKU_API_KEY
+  only:
+    - development
+  before_script:
+    - echo "deb http://toolbelt.heroku.com/ubuntu ./" > /etc/apt/sources.list.d/heroku.list
+    - wget -O- https://toolbelt.heroku.com/apt/release.key | apt-key add -
+    - apt-get update
+    - apt-get install -y heroku-toolbelt
+    - gem install dpl
